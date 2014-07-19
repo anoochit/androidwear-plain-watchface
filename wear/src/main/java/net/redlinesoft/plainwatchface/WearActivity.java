@@ -23,7 +23,18 @@ public class WearActivity extends Activity {
         imageView = (ImageView) stub.findViewById(R.id.background);
         
     }
-
+    
+    private void setBackground(final int color) {
+        stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
+            @Override
+            public void onLayoutInflated(WatchViewStub stub) {
+                imageView = (ImageView) stub.findViewById(R.id.background);
+                imageView.setBackgroundColor(color);
+            }
+        });
+    }
+    
     @Override
     protected void onResume() {
         super.onResume();
@@ -36,17 +47,6 @@ public class WearActivity extends Activity {
         setBackground(Color.BLACK);
     }
     
-    public void setBackground(final int color) {
-        stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-            @Override
-            public void onLayoutInflated(WatchViewStub stub) {
-                imageView = (ImageView) stub.findViewById(R.id.background);
-                imageView.setBackgroundColor(color);
-            }
-        });
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
