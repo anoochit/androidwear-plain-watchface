@@ -19,13 +19,9 @@ public class WearActivity extends Activity {
         setContentView(R.layout.activity_wear);
 
         stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-            @Override
-            public void onLayoutInflated(WatchViewStub stub) {
-                textClock = (TextClock) stub.findViewById(R.id.textClock);
-                imageView = (ImageView) stub.findViewById(R.id.background);
-            }
-        });
+        textClock = (TextClock) stub.findViewById(R.id.textClock);
+        imageView = (ImageView) stub.findViewById(R.id.background);
+        
     }
 
     @Override
